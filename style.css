@@ -1,0 +1,64 @@
+
+:root{
+    --state : '';
+    --bg : blue;
+    --width : 0;
+}   
+.warning{
+    animation: warning alternate ease-in-out infinite 800ms;
+}
+.{
+        color: red
+    }
+.charging{
+    animation: charging alternate ease-in-out infinite 800ms;
+}
+@keyframes warning{
+    0%{
+            color: rgb(12, 12, 12)
+        }
+    100%
+    {
+            color: red
+        }
+}
+@keyframes charging{
+    0%{
+            color: rgb(12, 12, 12)
+        }
+    100%
+    {
+            color: rgb(1, 158, 48)
+        }
+}
+#battery{
+    font-size: 100px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#battery::before{
+    content: '';
+    background : var(--bg);
+    position: absolute;
+    top : 27px;
+    z-index: -1;
+    left: 8px;
+    width: var(--width);
+    height: 45px;
+}
+#battery::after {
+    content: var(--state);
+    font-size: 15px;
+    position: absolute;
+    color: inherit;
+    width: 75px;
+    height: 45px;
+    z-index: 2;
+    left: 54%;
+    top: 62%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
